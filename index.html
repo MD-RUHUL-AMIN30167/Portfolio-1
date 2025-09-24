@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Md Ruhul Amin - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white"><body class="bg-black text-white relative overflow-hidden">
+
+  <!-- Global Bubbles -->
+  <div class="bubbles absolute w-full h-full z-0"></div>
+
+  <!-- Global Rain Drops -->
+  <div class="raindrops absolute w-full h-full z-0"></div>
+
+  <!-- Navbar -->
+  <nav class="bg-gray-900 shadow-md shadow-red-600 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <h1 class="text-xl md:text-2xl font-bold text-red-500 animate-pulse">MD RUHUL AMIN</h1>
+      </div>
+      <ul class="flex space-x-6">
+        <li><a href="#welcome" class="hover:text-red-500">Home</a></li>
+        <li><a href="#projects" class="hover:text-red-500">Projects</a></li>
+        <li><a href="#skills" class="hover:text-red-500">Skills</a></li>
+        <li><a href="#study" class="hover:text-red-500">Study</a></li>
+        <li><a href="#contact" class="hover:text-red-500">Contact</a></li>
+        <li>
+          <a href="resume.pdf" download class="bg-red-600 px-3 py-1 rounded hover:bg-red-700 transition">Download Resume</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="relative h-screen flex flex-col justify-center items-center text-center z-10">
+    <img src="image.jpg" alt="Profile" class="relative w-60 h-60 rounded-full border-4 border-red-600 shadow-lg shadow-red-600 animate-pulse z-10">
+    <h1 class="relative py-6 text-4xl md:text-6xl font-bold text-blue-400 drop-shadow-lg animate-bounce z-10">
+      Welcome My Portfolio
+    </h1>
+    <p class="relative text-gray-100 text-2xl z-10">
+      Full Stack Developer | Web Development & DSA Enthusiast
+    </p>
+  </header>
+
+<script>
+  // Global Bubbles
+  const bubbleContainer = document.querySelector('.bubbles');
+  for(let i=0;i<80;i++){
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble';
+    bubble.style.setProperty('--x', `${Math.random()*100}%`);
+    bubble.style.setProperty('--size', `${10+Math.random()*30}px`);
+    bubble.style.setProperty('--duration', `${5+Math.random()*10}s`);
+    bubble.style.backgroundColor = Math.random() > 0.5 ? '#f472b6' : '#f87171';
+    bubbleContainer.appendChild(bubble);
+  }
+
+  // Global Rain
+  const rainContainer = document.querySelector('.raindrops');
+  for(let i=0;i<120;i++){
+    const rain = document.createElement('div');
+    rain.className = 'raindrop';
+    if(Math.random()>0.5){
+      rain.style.setProperty('--left', `${Math.random()*100}%`);
+    } else {
+      rain.style.setProperty('--right', `${Math.random()*100}%`);
+    }
+    rain.style.setProperty('--duration', `${1+Math.random()*2}s`);
+    rainContainer.appendChild(rain);
+  }
+</script>
+
+<style>
+  /* Bubble animation */
+  .bubble {
+    position: absolute;
+    bottom: -50px;
+    left: var(--x);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: bubbleMove var(--duration) linear infinite alternate;
+  }
+  @keyframes bubbleMove {
+    0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-300px) translateX(30px) scale(1.2); opacity: 0.5; }
+    100% { transform: translateY(-600px) translateX(-20px) scale(1); opacity: 0.3; }
+  }
+
+  /* Rain Drop animation */
+  .raindrop {
+    position: absolute;
+    top: -10px;
+    left: var(--left, auto);
+    right: var(--right, auto);
+    width: 2px;
+    height: 10px;
+    background-color: #f472b6;
+    opacity: 0.7;
+    border-radius: 1px;
+    animation: rainDrop var(--duration) linear infinite;
+  }
+@keyframes rainDrop {
+  0% { transform: translateY(0); opacity: 0.7; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+</style>
+
+
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 px-6">
+    <h2 class="text-3xl font-bold text-center text-red-500 drop-shadow-lg mb-10">My Projects</h2>
+    <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-14 max-w-6xl mx-auto">
+
+      <!-- Task Management App -->
+      <div class="bg-gray-900 p-6 rounded-xl shadow-lg shadow-red-600 hover:scale-105 transition">
+        <h3 class="text-xl font-semibold mb-2 text-blue-700">Task Management App</h3>
+        <p class="text-gray-400">Stack: Django, Python, HTML, TailwindCSS, PostgreSQL</p>
+        <p class="text-gray-300 mt-2 font-semibold">Features:</p>
+        <ul class="list-disc list-inside text-gray-300 space-y-1">
+          <li>Create, Update, Delete tasks</li>
+          <li>User authentication (login/register)</li>
+          <li>Profile view & edit</li>
+          <li>Password reset functionality</li>
+          <li>Admin panel with full control</li>
+          <li>Manager panel (restricted access)</li>
+          <li>User panel (restricted access)</li>
+        </ul>
+        <a href="https://github.com/ruhulaminparvez/task-manager" target="_blank" 
+           class="text-green-400 underline hover:underline mt-3 block">View Code on GitHub</a>
+      </div>
+
+      <!-- Event Management System -->
+      <div class="bg-gray-900 p-6 rounded-xl shadow-lg shadow-red-600 hover:scale-105 transition">
+        <h3 class="text-xl font-semibold mb-2 text-blue-700">Event Management System</h3>
+        <p class="text-gray-400">Stack: Django, Python, HTML, TailwindCSS, PostgreSQL</p>
+        <p class="text-gray-300 mt-2 font-semibold">Backend Features:</p>
+        <ul class="list-disc list-inside text-gray-300 space-y-1">
+          <li>Admin panel (full access)</li>
+          <li>Manager panel (restricted access)</li>
+          <li>User panel (restricted access)</li>
+          <li>User registration & authentication (login/register)</li>
+          <li>Profile view & edit</li>
+          <li>Password reset functionality</li>
+          <li>Event booking system</li>
+          <li>Booking restriction: One booking per user per event</li>
+        </ul>
+        <a href="https://github.com/ruhulaminparvez/event-manager" target="_blank" 
+           class="text-green-400 underline hover:underline mt-3 block">View Code on GitHub</a>
+      </div>
+
+      <!-- Drink Card Web App -->
+      <div class="bg-gray-900 p-6 rounded-xl shadow-lg shadow-red-600 hover:scale-105 transition">
+        <h3 class="text-xl font-semibold mb-2 text-blue-700">Drink Card Web App</h3>
+        <p class="text-gray-400">Stack: HTML, CSS, JavaScript</p>
+        <p class="text-gray-300 mt-2 font-semibold">Features:</p>
+        <ul class="list-disc list-inside text-gray-300 space-y-1">
+          <li>Dynamic drink cards display</li>
+          <li>Search functionality</li>
+          <li>Add to cart / remove from cart</li>
+          <li>Modal with drink details</li>
+          <li>Responsive design (mobile & desktop)</li>
+          <li>Group add feature with 7-drink limit</li>
+        </ul>
+        <a href="https://github.com/ruhulaminparvez/drink-card-app" target="_blank" 
+           class="text-green-400 underline hover:underline mt-3 block">View Code on GitHub</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16 px-6 bg-gray-950">
+    <h2 class="text-3xl font-bold text-center text-red-500 drop-shadow-lg mb-10">My Skills</h2>
+    <div class="grid md:grid-cols-3 gap-14 max-w-6xl mx-auto">
+     <div class="bg-gray-900 p-6 rounded-xl shadow-lg shadow-red-600 hover:scale-105 transition">
+        <h3 class="text-xl font-semibold mb-3 text-blue-700">Frameworks & Tools</h3>
+        <ul class="text-gray-300 space-y-1">
+            <li>✅ Django (Backend & Full-stack projects)</li>
+            <li>✅ Python (Backend logic, automation, scripting)</li>
+            <li>✅ TailwindCSS</li>
+            <li>✅ Git & GitHub</li>
+            <li>✅ VS Code</li>
+        </ul>
+     </div>
+      <div class="bg-gray-900 p-6 rounded-xl shadow-lg shadow-red-600 hover:scale-105 transition">
+        <h3 class="text-xl font-semibold mb-3 text-blue-700">Frameworks & Tools</h3>
+        <ul class="text-gray-300 space-y-1">
+          <li>✅ Django (Backend & Full-stack projects)</li>
+          <li>✅ TailwindCSS</li>
+          <li>✅ Git & GitHub</li>
+          <li>✅ VS Code</li>
+          <li>✅ Figma/Canva (basic)</li>
+        </ul>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-xl shadow-lg shadow-red-600 hover:scale-105 transition">
+        <h3 class="text-xl font-semibold mb-3 text-blue-700">DSA & Algorithms</h3>
+        <ul class="text-gray-300 space-y-1">
+          <li>✅ Arrays, Linked List, Stack, Queue</li>
+          <li>✅ Binary Tree, Heap, Map</li>
+          <li>✅ BFS, DFS, Cycle Detection</li>
+          <li>✅ Dijkstra, Bellman-Ford, Floyd-Warshall</li>
+          <li>✅ DP basics (Knapsack, Fibonacci, etc.)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Study Section -->
+  <section id="study" class="py-16 px-6">
+    <h2 class="text-3xl font-bold text-center text-red-500 drop-shadow-lg mb-6 ">My Study</h2>
+    <div class="max-w-3xl mx-auto text-center space-y-2 text-xl ">
+      <p class="text-gray-400">Diploma in Computer Science & Technology</p>
+      <p class="text-gray-400">Running 8th Semester</p>
+      <p class="text-gray-400">Currently Learning: Full Stack Development & Web Projects</p>
+      <p class="text-gray-400">Practical Work: Web Development Projects (Django, Python, JavaScript)</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 px-6 bg-gray-950">
+    <h2 class="text-3xl font-bold text-center text-red-500 drop-shadow-lg mb-6">Contact Me</h2>
+    <div class="max-w-3xl mx-auto text-center space-y-2">
+      <p>Email: <a href="mdruhulamin30167@gmail.com" class="text-red-400 hover:underline">mdruhulamin30167@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/MD-RUHUL-AMIN30167" target="_blank" class="text-red-400 hover:underline">github.com/mdruhulamin</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/md-ruhul-amin-68837130a/" target="_blank" class="text-red-400 hover:underline">linkedin.com/in/mdruhulamin</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-700 text-center py-6 shadow-inner shadow-red-600">
+    <p>&copy; 2025 Md Ruhul Amin | Full Stack Developer</p>
+  </footer>
+
+</body>
+</html>
